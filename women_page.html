@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>womenshopping</title>
+    <style>
+     
+
+
+    </style>
+
+</head>
+<style>
+   *{
+        font-family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+    }
+
+    .flex{
+  display:flex;
+}
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+ 
+}
+body {
+    font-family: WhitneySSm,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #424553;
+  
+    -webkit-font-smoothing: antialiased;
+}
+
+header{
+  position: sticky;
+  top: 0px;
+  background: white;
+  height: 90px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+ 
+}
+
+.rightBox{
+    display: flex;
+    margin: 12px;
+    justify-content:space-between;
+    /* padding:0 20px; */
+  }
+
+.left img{
+  width: 42px;
+  height: 30px;
+}
+
+/* .container{ 
+  /* padding: 0 10vw;  */
+  /* width:100%;
+  border:1px solid black;
+} */
+
+/* .containerHeader{ 
+  /* padding: 0 10vw;  */
+  /* width:100%;
+}  */
+
+nav{
+  font-size: 15px;
+  padding-top: 14px;
+}
+
+nav ul li{
+  list-style: none;
+  padding: 0 12px;
+}
+.search{
+  width: 34vw;
+    padding: 7px 17px;
+    
+    border: 0.5px solid grey;
+    background: #f7f8fd;
+    border-radius: 5px;
+}
+.items-center{
+  align-items:center;
+} 
+
+.justify-center{
+  justify-content: center;
+}
+
+.space-between{
+  justify-content: space-between;
+}
+
+.uppercase{
+  text-transform: uppercase;
+}
+
+.semibold{
+  font-weight: bolder;
+}
+
+.mx-2{
+   margin-left: 12px;
+  margin-right: 12px;
+  font-weight: bolder; 
+ 
+} 
+.bag a{
+    text-decoration: none;
+  color:black;
+}
+
+ .my-2{
+  margin: 12px 0;
+ 
+}
+
+.flex-wrap{
+  flex-wrap: wrap;
+ 
+}
+#container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+
+}
+s{
+    text-decoration: line-through;
+}
+
+
+   </style>
+
+<!-- <div id="links">
+      
+    <div><a href="cartwomen.html">Go to Cart</a></div>
+
+  </div> -->
+
+
+<body>
+    <header class="containerHeader">
+        <nav class="flex space-between">
+          <div class="left flex items-center">
+      <img src="https://images.indianexpress.com/2021/01/myntra.png"/>
+            <ul class="flex items-center justify-center uppercase semibold">
+              <li>Men</li>
+              <li>Women</li>
+              <li>Kids</li>
+              <li>Home and Living</li>
+              <li>Beauty</li>
+              <li>Studio</li>
+            </ul>
+          </div>
+          <div class="right flex items-center">
+            <input class="search" placeholder="Search for products, brands and more" class="desktop-searchBar" value="" data-reactid="904">
+            <div class="rightBox">
+            <div class="wishlist mx-2">WishList</div>
+            <div class="bag mx-2"><a href="cartwomen.html">Bag</a></div>
+              </div>
+          </div>
+        </nav> 
+      </header> 
+
+      <h2>Myntra Fashion Store</h2>
+
+      <select  id="sort">
+        <option value="">Sort By Price</option>
+        <option value="High-Low">High To Low</option>
+        <option value="Low-High">Low To High</option>
+    </select>
+
+      <div id="container">   
+      
+       </div>
+
+       <div id="pagination"></div>
+       <script>
+        var womensData = [
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/10961848/2020/8/19/132d44e6-639e-44dc-a2a6-c0205735542f1597812419281-Roadster-Women-Tshirts-6091597812417973-1.jpg",
+              name: "Roadster",
+              description:"Striped round neck pure cotton ...",
+              price: 224,
+              strikedoffprice: 899,
+            },
+            {
+              image_url:"https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/8813209/2019/3/29/35935fd1-6d69-4d1f-9464-0f8fec7611bb1553859274548-Moda-Rapido-Women-Green-Solid-Round-Neck-T-shirt-46415538592-1.jpg",            
+             
+              name: "Roadster",
+              description:"Women Typography printed T...",
+              price: 249,
+              strikedoffprice: 749,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/11697404/2020/7/8/148b55e1-334d-42d9-8993-ba95993b74af1594191434775-Roadster-Women-Rust-Solid-Round-Neck-T-shirt-120159419143310-1.jpg",
+              name: "Kook N Kich Disney",
+              description:"Printed round neck pure cotton..",
+              price: 499,
+              strikedoffprice: 845,
+            },
+            {
+              image_url:
+               "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/17111616/2022/2/28/00598a6c-e8df-434e-9775-5dc62578977e1646045810969-Moda-Rapido-Women-Tshirts-8041646045810511-1.jpg",
+              name: "Roadster",
+              description:"Printed Round Nect T-...",
+              price: 749,
+              strikedoffprice: 1299,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/12193506/2020/9/4/d64ce475-3dce-4437-b082-43a99c4570191599190299995-Roadster-Women-Teal-Solid-Round-Neck-T-shirt-318159919029877-1.jpg",
+              name: "Moda Rapedo",
+              description:"Solid Round Neck T-Shirt",
+              price: 749,
+              strikedoffprice: 1299,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/1090670/2020/5/28/b7bbdd11-3f19-45b4-b384-839cae12d34e1590679054828-Kook-N-Keech-Disney-Women-Green-Printed-Round-Neck-T-shirt-4-1.jpg",
+              name: "Mast & Harbour",
+              description:"Printed Round Neck T-...",
+              price: 1399,
+              strikedoffprice: 2799,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/17111616/2022/2/28/00598a6c-e8df-434e-9775-5dc62578977e1646045810969-Moda-Rapido-Women-Tshirts-8041646045810511-1.jpg",
+              name: "DressBerry",
+              description:"Solid Round Neck T-Shirt",
+              price: 1099,
+              strikedoffprice: 1249,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/11711928/2020/7/14/f6325ba7-8872-43f3-becb-14efd2a872281594724308447-Mast--Harbour-Women-Yellow-Solid-V-Neck-T-shirt-818159472430-1.jpg",
+              name: "Tokyo Talkies",
+              description:"Solid Round Neck T-Shirt",
+              price: 1249,
+              strikedoffprice: 1489,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/2312468/2018/2/21/11519195992929-Roadster-Women-Maroon-Solid-Round-Neck-T-shirt-7951519195992737-1.jpg",
+              name: "Ginger by Life Style",
+              description:"Solid Round Neck T-Shirt",
+              price: 1459,
+              strikedoffprice: 1235,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/12193384/2020/10/14/54e2393e-4329-48a6-bd29-137a4142a61c1602676034218-Roadster-Women-Tshirts-3611602676032642-1.jpg",
+              name: "max",
+              description:"Solid Round Neck T-Shirt",
+              price: 849,
+              strikedoffprice: 2599,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/10968502/2020/2/18/54c26fb8-d8c6-42b0-a3d6-eea009aaba161582020847616-Roadster-Women-Tshirts-2671582020846188-1.jpg",
+              name: "H&M",
+              description:"Solid Round Neck T-Shirt",
+              price: 1550,
+              strikedoffprice: 2599,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/12193346/2020/9/4/771acd84-a757-4f46-981b-a98a98fb1dca1599191531288-Roadster-Women-Black-Solid-Round-Neck-T-shirt-39515991915297-1.jpg",
+                name: "Roadster",
+              description:"Solid Round Neck T-Shirt",
+              price: 1399,
+              strikedoffprice: 6599,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/9740077/2019/7/26/9ebed370-c661-4f39-aaa7-e1e2f5b1c9551564119053614-Roadster-Women-Tshirts-1551564119051879-1.jpg",
+                name: "Moda Rapedo",
+              description:"Solid Round Neck T-Shirt",
+              price: 949,
+              strikedoffprice: 1899,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/10969984/2020/3/4/4d451ae4-cd73-4a19-a31c-769b682a5e5b1583316673221-Roadster-Women-Pink-Solid-Polo-Collar-T-shirt-63815833166711-1.jpg",
+                name: "Roadster",
+              description:"Solid Round Neck T-Shirt",
+              price: 1549,
+              strikedoffprice: 1799,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/2025296/2019/5/14/21903913-5b80-45bc-8bb8-f35a557196061557839541110-Roadster-Women-Red--Navy-Blue-Striped-Round-Neck-T-shirt-249-1.jpg",
+                name: "Roadster",
+              description:"Solid Round Neck T-Shirt",
+              price: 1249,
+              strikedoffprice: 1749,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_40,w_210,c_limit,fl_progressive/assets/images/1753468/2017/4/18/11492511410264-Roadster-Women-White-Solid-Round-Neck-T-shirt-6111492511410042-1.jpg",
+                name: "Moda Rapedo",
+              description:"Solid Round Neck T-Shirt",
+              price: 699,
+              strikedoffprice: 1245,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/9740131/2019/7/26/e89f9349-8c90-4774-ad74-8f5c9957f1461564121245992-Roadster-Women-Tshirts-661564121243613-1.jpg",
+                name: "Roadster",
+              description:"Solid Round Neck T-Shirt",
+              price: 749,
+              strikedoffprice: 1299,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_40,w_210,c_limit,fl_progressive/assets/images/13269898/2021/3/30/d3cad69e-1b52-49ff-a026-8f1f2c424dfd1617101586790-Roadster-Women-Tshirts-1991617101585939-1.jpg",
+                name: "Moda Rapedo",
+              description:"Solid Round Neck T-Shirt",
+              price: 749,
+              strikedoffprice: 1299,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_40,w_210,c_limit,fl_progressive/assets/images/11109846/2020/3/3/9936a07d-cf2c-4363-a4c5-02bfaeef6c0a1583210297351-Harvard-Women-Tshirts-1071583210296000-1.jpg",
+                name: "Roadster",
+              description:"Solid Round Neck T-Shirt",
+              price: 1399,
+              strikedoffprice: 2799,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_40,w_210,c_limit,fl_progressive/assets/images/13601516/2022/5/18/a53876f8-1c76-4057-ba9e-b0d5eee4f59a1652846333054-Roadster-Women-Blue-Pure-Cotton-T-shirt-4661652846332410-1.jpg",
+                name: "Roadster",
+              description:"Solid Round Neck T-Shirt",
+              price: 1099,
+              strikedoffprice: 1249,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_40,w_210,c_limit,fl_progressive/assets/images/11697410/2020/7/7/a7568362-b965-4663-b52f-1e967a19ebab1594119159219-Roadster-Women-Navy-Blue-Solid-Round-Neck-T-shirt-7701594119-1.jpg",
+                name: "Roadster",
+              description:"Solid Round Neck T-Shirt",
+              price: 1249,
+              strikedoffprice: 1489,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_40,w_210,c_limit,fl_progressive/assets/images/13573424/2021/5/28/73d36e83-6d45-4960-abcc-06c120af92ae1622210014696RoadsterWomenMagentaPinkwithredtingeSolidRoundNeckT-shirt1.jpg",
+                name: "Roadster",
+              description:"Solid Round Neck T-Shirt",
+              price: 1459,
+              strikedoffprice: 1235,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/11697398/2020/7/8/68df21c4-bad0-43f9-93e9-bd215089b5a61594183399292-Roadster-Women-Lavender-Solid-Round-Neck-T-shirt-75315941833-1.jpg",
+                name: "Roadster",
+              description:"Solid Round Neck T-Shirt",
+              price: 849,
+              strikedoffprice: 2599,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/10968540/2020/2/18/2dbafd25-6e7a-47a3-9f01-bffeff86293c1582017475017-Roadster-Women-Tshirts-9481582017473583-1.jpg",
+                name: "H&M",
+              description:"Solid Round Neck T-Shirt",
+              price: 1550,
+              strikedoffprice: 2599,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/13126968/2021/3/22/ce07fc2b-76b3-4001-a694-1131af33db921616397297520-Roadster-Women-Green-Printed-Round-Neck-T-shirt-344161639729-1.jpg",
+                name: "H&M",
+              description:"Solid Round Neck T-Shirt",
+              price: 1399,
+              strikedoffprice: 6599,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/8661663/2019/8/10/1fd66138-d882-47c1-99b5-c3b4ee1682ae1565439182294-Roadster-Women-Pink-Solid-Styled-Back-Top-5871565439181081-1.jpg",
+                name: "H&M",
+              description:"Solid Round Neck T-Shirt",
+              price: 949,
+              strikedoffprice: 1899,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/10300895/2019/10/11/67f90ec8-6038-4317-8f62-65a60bc0a8c41570770480153-Roadster-Women-Tops-4581570770479418-1.jpg",
+                name: "Tokyo Talkies",
+              description:"Solid Round Neck T-Shirt",
+              price: 1549,
+              strikedoffprice: 1799,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/12487482/2022/6/13/fdc64a2d-dfb0-4936-8f1b-2a2312c571b21655123410888-DressBerry-Women-Pink-Boxy-Fit-Solid-Round-Neck-Pure-Cotton--1.jpg",
+                name: "Tokyo Talkies",
+              description:"Solid Round Neck T-Shirt",
+              price: 1249,
+              strikedoffprice: 1749,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/19201734/2022/7/21/6589154a-723b-4f83-ab23-8ef9778a330e1658375038841TokyoTalkiesWomenWhitePrintedSlimFitT-shirt1.jpg",
+                name: "Tokyo Talkies",
+              description:"Solid Round Neck T-Shirt",
+              price: 699,
+              strikedoffprice: 1245,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/13601542/2021/4/28/92ac59d7-1c94-4fa9-8a84-bfaacc3c414e1619586566085TshirtsMetronautMenTshirtsRoadsterMenTshirtsRoadsterMenTopsR1.jpg",
+                name: "H&M",
+                name: "Tokyo Talkies",
+              price: 749,
+              strikedoffprice: 1299,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/11711886/2020/6/18/dff706fc-2ecb-4006-bf63-d2055a2b96491592462462532-Mast--Harbour-Women-Tshirts-6951592462461297-1.jpg",
+                name: "H&M",
+              description:"Solid Round Neck T-Shirt",
+              price: 749,
+              strikedoffprice: 1299,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/10964418/2019/12/23/4e258f4f-ee8e-4499-9423-a663d4ff1c3b1577093387328-Roadster-Women-Tshirts-3801577093385447-1.jpg",
+                name: "H&M",
+              description:"Solid Round Neck T-Shirt",
+              price: 1399,
+              strikedoffprice: 2799,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/10964418/2019/12/23/4e258f4f-ee8e-4499-9423-a663d4ff1c3b1577093387328-Roadster-Women-Tshirts-3801577093385447-1.jpg",
+                name: "Roadster",
+              description:"Solid Round Neck T-Shirt",
+              price: 1099,
+              strikedoffprice: 1249,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/13594612/2021/4/20/fb8abc5e-f285-419f-bf3d-83e0fd9163011618893524311-Roadster-Women-Tshirts-7311618893523582-1.jpg",
+                name: "H&M",
+              description:"Solid Round Neck T-Shirt",
+              price: 1249,
+              strikedoffprice: 1489,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/1237053/2019/3/29/397f82be-6448-4e12-9a95-383f8ae2f4ba1553864949499-Roadster-Navy--Grey-Printed-Polo-T-shirt-6621553864948463-1.jpg",
+              name: "REEBOK",
+              description:"Solid Round Neck T-Shirt",
+              price: 1459,
+              strikedoffprice: 1235,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/8339489/2019/3/7/3fca4769-a912-48bc-a2a5-6e614da448781551959385867-Roadster-Women-White-Solid-Round-Neck-T-shirt-15115519593843-1.jpg",
+                name: "H&M",
+              description:"Solid Round Neck T-Shirt",
+              price: 849,
+              strikedoffprice: 2599,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/17207906/2022/4/29/d9f1bbe9-77df-4ebc-89ef-e300b77fe5e91651229716263-HRX-by-Hrithik-Roshan-Women-Tshirts-8651651229715726-1.jpg",
+                name: "Roadster",
+              description:"Solid Round Neck T-Shirt",
+              price: 1550,
+              strikedoffprice: 2599,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/14015212/2021/6/12/3e226f24-3ea5-45d1-80cd-f1e24c74fad91623471103982-HERENOW-Women-Tshirts-1131623471103729-1.jpg",
+                name: "Roadster",
+              description:"Solid Round Neck T-Shirt",
+              price: 1399,
+              strikedoffprice: 6599,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/2519780/2018/4/24/11524564048213-Roadster-Women-Grey-Solid-Round-Neck-T-shirt-4121524564048008-1.jpg",
+                name: "H&M",
+                description:"Solid Round Neck T-Shirt",
+              price: 949,
+              strikedoffprice: 1899,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/18737586/2022/7/13/5a431b9d-1744-4367-85b5-51eb5d220f0b1657714475889-Moda-Rapido-Women-Tshirts-1681657714475458-1.jpg",
+                name: "H&M",
+              description:"Solid Round Neck T-Shirt",
+              price: 1549,
+              strikedoffprice: 1799,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/18737586/2022/7/13/5a431b9d-1744-4367-85b5-51eb5d220f0b1657714475889-Moda-Rapido-Women-Tshirts-1681657714475458-1.jpg",
+                name: "H&M",
+              description:"Solid Round Neck T-Shirt",
+              price: 1249,
+              strikedoffprice: 1749,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/14140634/2021/7/14/fdab9f7f-94bd-473d-9d53-2d0dc1336a6b1626258945082-Moda-Rapido-Women-Tshirts-9541626258944522-1.jpg",
+              name: "WOMEN'S REEBOK SLEEVE TEE",
+              description:"Solid Round Neck T-Shirt",
+              price: 699,
+              strikedoffprice: 1245,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/2001721/2017/8/18/11503059331218-Minions-by-Kook-N-Keech-Women-White-Printed-Round-Neck-T-shirt-7991503059330986-1.jpg",
+                name: "Roadster",
+              description:"Solid Round Neck T-Shirt",
+              price: 749,
+              strikedoffprice: 1299,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/8813141/2019/3/12/cb7630e0-9ef8-4060-a42f-9684779c9f641552395411038-HERENOW-Women-Green-Solid-V-Neck-T-shirt-151552395409922-1.jpg",
+                name: "Roadster",
+              description:"Solid Round Neck T-Shirt",
+              price: 749,
+              strikedoffprice: 1299,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/11690896/2022/6/14/f3eb8514-23ba-43c4-82c7-6eb3b114dd671655190200040-Roadster-Women-Lavender-V-Neck-Gathered-Cotton-Pure-Cotton-T-1.jpg",
+                name: "H&M",
+              description:"Solid Round Neck T-Shirt",
+              price: 1399,
+              strikedoffprice: 2799,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/19201724/2022/7/21/9dcfaaf4-6546-4bed-b01a-87b146ebc7df1658375050706TokyoTalkiesWomenPinkPrintedV-NeckSlimFitT-shirt1.jpg",
+                name: "H&M",
+              description:"Solid Round Neck T-Shirt",
+              price: 1099,
+              strikedoffprice: 1249,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/13270164/2021/4/22/6671362a-c86d-4b1c-a64d-0f3ecaac53e61619082225240-Roadster-Women-Tshirts-411619082224276-1.jpg",
+                name: "Roadster",
+              description:"Solid Round Neck T-Shirt",
+              price: 1249,
+              strikedoffprice: 1489,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/17988742/2022/4/22/147ff450-2987-437d-9365-b9af0278649d1650623242772TheSouledStoreWomenBlackTypographyExtendedSleevesT-shirt1.jpg",
+                name: "H&M",
+              description:"Solid Round Neck T-Shirt",
+              price: 1459,
+              strikedoffprice: 1235,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/2490937/2018/6/7/9e328cc4-ce8d-437f-9dcb-69ebea3503851528369261430-Mast--Harbour-Women-Tshirts-7141528369260395-1.jpg",
+                name: "Roadster",
+              description:"Solid Round Neck T-Shirt",
+              price: 849,
+              strikedoffprice: 2599,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/2414678/2020/3/5/762c6b79-3c96-4efc-aa8f-f7a6eeab62c41583403456054-Kook-N-Keech-Women-Black-Solid-Round-Neck-Crop-T-shirt-60415-1.jpg",
+                name: "Kook N Kich Disney",
+              description:"Solid Round Neck T-Shirt",
+              strikedoffprice: 2599,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/12193620/2020/9/4/e05521bf-4668-4afc-af1b-75fceec783271599195431225-Roadster-Women-Pink-Solid-V-Neck-T-shirt-8351599195429875-1.jpg",
+                name: "Kook N Kich Disney",
+              description:"Solid Round Neck T-Shirt",
+              price: 1399,
+              strikedoffprice: 6599,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/12959136/2021/3/4/8c923005-5b10-4480-bf4c-bbfa392570971614850376240-Kook-N-Keech-Women-Tshirts-4741614850374833-1.jpg",
+                name: "DressBerry",
+              description:"Solid Round Neck T-Shirt",
+              price: 949,
+              strikedoffprice: 1899,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2021/5/31/157e3bf9-0da4-423c-b303-e3ae5dea13f41622446535751-5.jpg",
+                name: "Mast & Harbour",
+              description:"Solid Round Neck T-Shirt",
+              price: 1549,
+              strikedoffprice: 1799,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/10778646/2019/12/26/ec20b905-e496-4045-9fb4-1fa199de84321577344584510-Roadster-Women-Rust-Brown-Solid-Round-Neck-T-shirt-871577344-1.jpg",
+                name: "Mast & Harbour",
+              description:"Solid Round Neck T-Shirt",
+              price: 1249,
+              strikedoffprice: 1749,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/9740065/2019/7/31/3a2ac3c9-fad9-471f-960b-97e9afc7bbb31564546857854-Roadster-Women-Tshirts-6911564546855797-1.jpg",
+                name: "DressBerry",
+              description:"Solid Round Neck T-Shirt",
+              price: 699,
+              strikedoffprice: 1245,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/14145168/2021/4/20/ee8cb3ab-dda6-4baf-bd29-1f6e5834a6211618909412177TokyoTalkiesWomenBlackSolidHighNeckT-shirt1.jpg",
+                name: "Mast & Harbour",
+              description:"Solid Round Neck T-Shirt",
+              price: 749,
+              strikedoffprice: 1299,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/17485988/2022/5/24/dbb24175-145c-4eb9-8bc6-9770612002871653374748422-DressBerry-Women-Yellow-Puff-Sleeves-Pure-Cotton-T-shirt-571-1.jpg",
+                name: "DressBerry",
+              description:"Solid Round Neck T-Shirt",
+              price: 749,
+              strikedoffprice: 1299,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/17485988/2022/5/24/dbb24175-145c-4eb9-8bc6-9770612002871653374748422-DressBerry-Women-Yellow-Puff-Sleeves-Pure-Cotton-T-shirt-571-1.jpg",
+                name: "DressBerry",
+              description:"Solid Round Neck T-Shirt",
+              price: 1399,
+              strikedoffprice: 2799,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/8437937/2019/2/14/59c47d72-48ff-4864-9c9a-1ea817c0bea41550139572317-Harvard-Women-Blue-Striped-Round-Neck-T-shirt-14115501395703-1.jpg",
+                name: "Kook N Kich Disney",
+              description:"Solid Round Neck T-Shirt",
+              price: 1099,
+              strikedoffprice: 1249,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/13555582/2022/6/16/edc04399-7b94-4374-b3bb-b516b2c99f8c1655374490575-Roadster-Women-Pink-Solid-Pure-Cotton-T-shirt-39165537449007-1.jpg",
+                name: "Mast & Harbour",
+              description:"Solid Round Neck T-Shirt",
+              price: 1249,
+              strikedoffprice: 1489,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/7140526/2019/1/22/ccfc281f-c3b1-43e1-9af6-c9b6baa708931548133028598-Mast--Harbour-Women-White-Printed-Round-Neck-T-shirt-9791548-1.jpg",
+                name: "DressBerry",
+              description:"Solid Round Neck T-Shirt",
+              price: 1459,
+              strikedoffprice: 1235,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/2414685/2018/3/6/11520326288495-Kook-N-Keech-Women-White-Printed-Round-Neck-T-shirt-3041520326288315-1.jpg",
+                name: "Mast & Harbour",
+              name: "Kook N Kich Disney",
+              price: 849,
+              strikedoffprice: 2599,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/17111562/2022/2/28/b53675bc-ed8c-4e84-8ad1-c067aa4260c31646045762094-Moda-Rapido-Women-Tshirts-6221646045761638-1.jpg",
+                name: "Mast & Harbour",
+              description:"Solid Round Neck T-Shirt",
+              price: 1550,
+              strikedoffprice: 2599,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/19201696/2022/7/21/f1d01239-c31e-47d4-9ed7-4f3a64d1b8e21658375178859TokyoTalkiesWomenPinkPrintedAppliqueSlimFitT-shirt1.jpg",
+                name: "DressBerry",
+              description:"Solid Round Neck T-Shirt",
+              price: 1399,
+              strikedoffprice: 6599,
+            },
+            {
+              image_url:
+                "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/17185100/2022/5/18/2f61a8ad-8109-4090-82e5-d29dde19504f1652870797504-Marks--Spencer-Women-Sky-Blue-Boat-Neck-T-shirt-597165287079-1.jpg",
+     
+              name: "Kook N Kich Disney",
+              description:"Solid Round Neck T-Shirt",
+              price: 949,
+              strikedoffprice: 1899,
+            },
+          ];
+    
+        
+        let cartArr = JSON.parse(localStorage.getItem("productss"))||[]
+        // let cartArr=[];
+
+
+        let sort = document.getElementById("sort");
+let paginationDOM = document.getElementById("pagination");
+let crypto_per_page =  10;
+let currentPageState = 1;
+let pages = Math.ceil(womensData.length / crypto_per_page);
+
+function renderDOM(data) {
+  // tbody.innerHTML = null;
+          womensData.forEach(function(el, index){
+           let div=document.createElement("div");
+        
+           let image =document.createElement("img");
+           image.setAttribute("src",el.image_url);
+           
+           let womensName=document.createElement("h2");
+           womensName.innerText=el.name;
+          
+          
+           let price =document.createElement("h2");
+           price.innerText="Rs"+" "+ el.price;
+        //    price.setAttribute("id","roles");
+
+        let description=document.createElement("p");
+           description.innerText=el.description;
+        
+        let button=document.createElement("button");
+        button.innerText="Move to Bag"
+        button.style.backgroundColor ="rgb(233, 78, 104)"
+        button.style.border="none"
+        button.addEventListener("click", function(){
+                addToCartFunc(el, index)
+              })
+        
+           let strikedoffprice =document.createElement("s");
+           strikedoffprice.innerText= strikedoffprice.innerText="Rs"+" "+el.strikedoffprice;
+          
+
+          
+           div.append(image, womensName,price, strikedoffprice, description, button, );
+           document.querySelector("#container").append(div)
+        });
+      }
+        function addToCartFunc(el, index){
+            // console.log(elem)
+              cartArr.push(el)
+              localStorage.setItem("productss", JSON.stringify(cartArr))
+            }
+        
+            function renderPagination(pages) {
+  for (let i = 1; i <= pages; i++) {
+    let btn = document.createElement("button");
+    btn.innerText = i;
+    btn.addEventListener("click", function () {
+      currentPageState = i;
+      activePage(currentPageState);
+      paginatedTable(womensData, currentPageState, crypto_per_page);
+    });
+    paginationDOM.append(btn);
+  }
+}
+renderPagination(pages);
+
+
+function paginatedTable(data, page, perPage) {
+  let start = perPage * (page - 1);
+  let end = perPage * page;
+  let splited = data.slice(start, end);
+ renderDOM(splited);
+}
+paginatedTable(womensData, currentPageState, crypto_per_page);
+
+sort.addEventListener("change", function () {
+  currentPageState = 1;
+  activePage(currentPageState);
+  if (sort.value === "") {
+    paginatedTable(womensData, currentPageState, crypto_per_page);
+  } else {
+    let  womensData_copy =  womensData.map(function (el) {
+      return el;
+    });
+    let sorted =  womensData_copy.sort(function (a, b) {
+      if (sort.value === "Low-High") {
+        return a.price - b.price;
+      } else if (sort.value === "High-Low") {
+        return b.price - a.price;
+      }
+    });
+    paginatedTable(sorted, currentPageState, crypto_per_page);
+  }
+});
+
+function activePage(currentPageState) {
+  let buttons = document.querySelectorAll("#pagination>button");
+  buttons.forEach(function (el,i) {
+    if( i === (currentPageState - 1)) {
+      el.style.backgroundColor = "green";
+    }else{
+        el.style.backgroundColor = "gray";
+    }
+  });
+}
+activePage(currentPageState);
+        
+            </script>
+
