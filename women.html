@@ -135,7 +135,29 @@ nav ul li{
 s{
     text-decoration: line-through;
 }
+.pagenumbers {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+}
 
+.pagenumbers button {
+    width:50px;
+    height:50px;
+    appearance:none;
+    border:none;
+    outline:none;
+    cursor:pointer;
+
+    background-color:pink;
+    margin:5px;
+    transition:0.4s;
+
+    color:#FFF;
+    font-size:18px;
+    
+}
 
    </style>
 
@@ -171,21 +193,17 @@ s{
       </header> 
 
       <h2>Myntra Fashion Store</h2>
-
       <select  id="sort">
-        <option value="">Sort By Price</option>
+        <option value="">Sort By 24H High</option>
         <option value="High-Low">High To Low</option>
         <option value="Low-High">Low To High</option>
     </select>
+<div id="container">
 
-      <div id="container">   
-      
-       </div>
-
-       <div id="pagination"></div>
-       <script>
-        var womensData = [
-            {
+</div>
+    <div id="pagination"></div>
+<script>
+     let crypto_data =[{
               image_url:
                 "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/10961848/2020/8/19/132d44e6-639e-44dc-a2a6-c0205735542f1597812419281-Roadster-Women-Tshirts-6091597812417973-1.jpg",
               name: "Roadster",
@@ -706,114 +724,160 @@ s{
               strikedoffprice: 1899,
             },
           ];
-    
-        
-        let cartArr = JSON.parse(localStorage.getItem("productss"))||[]
-        // let cartArr=[];
+</script>
 
-
-        let sort = document.getElementById("sort");
+      <script>
+        let container = document.querySelector("container");
+ let sort = document.getElementById("sort");
 let paginationDOM = document.getElementById("pagination");
-let crypto_per_page =  10;
 let currentPageState = 1;
-let pages = Math.ceil(womensData.length / crypto_per_page);
+let crypto_per_page = 10;
+
+// let pagination_element=document.getElementById("pagination");
+// let current_page=1;
+// let rows=5;
+
+let pages = Math.ceil(crypto_data.length / crypto_per_page);
 
 function renderDOM(data) {
-  // tbody.innerHTML = null;
-          womensData.forEach(function(el, index){
-           let div=document.createElement("div");
+//   tbody.innerHTML = null;
+  data.forEach(function (el, i) {
+    let div=document.createElement("div");
         
-           let image =document.createElement("img");
-           image.setAttribute("src",el.image_url);
-           
-           let womensName=document.createElement("h2");
-           womensName.innerText=el.name;
-          
-          
-           let price =document.createElement("h2");
-           price.innerText="Rs"+" "+ el.price;
-        //    price.setAttribute("id","roles");
+        let image =document.createElement("img");
+        image.setAttribute("src",el.image_url);
+        
+        let womensName=document.createElement("h2");
+        womensName.innerText=el.name;
+       
+       
+        let high24=document.createElement("h2");
+        high24.innerText="Rs"+" "+ el.price;
+     //    price.setAttribute("id","roles");
 
-        let description=document.createElement("p");
-           description.innerText=el.description;
-        
-        let button=document.createElement("button");
-        button.innerText="Move to Bag"
-        button.style.backgroundColor ="rgb(233, 78, 104)"
-        button.style.border="none"
-        button.addEventListener("click", function(){
-                addToCartFunc(el, index)
-              })
-        
-           let strikedoffprice =document.createElement("s");
-           strikedoffprice.innerText= strikedoffprice.innerText="Rs"+" "+el.strikedoffprice;
-          
+     let description=document.createElement("p");
+        description.innerText=el.description;
+     
+     let button=document.createElement("button");
+     button.innerText="Move to Bag"
+     button.style.backgroundColor ="rgb(233, 78, 104)"
+     button.style.border="none"
+     button.addEventListener("click", function(){
+             addToCartFunc(el, index)
+           })
+     
+        let strikedoffprice =document.createElement("s");
+        strikedoffprice.innerText= strikedoffprice.innerText="Rs"+" "+el.strikedoffprice;
+       
 
-          
-           div.append(image, womensName,price, strikedoffprice, description, button, );
-           document.querySelector("#container").append(div)
-        });
-      }
-        function addToCartFunc(el, index){
-            // console.log(elem)
-              cartArr.push(el)
-              localStorage.setItem("productss", JSON.stringify(cartArr))
-            }
-        
-            function renderPagination(pages) {
+       
+        div.append(image, womensName,high24, strikedoffprice, description, button, );
+        document.querySelector("#container").append(div)
+     });
+   }
+     function addToCartFunc(el, index){
+         // console.log(elem)
+           cartArr.push(el)
+           localStorage.setItem("productss", JSON.stringify(cartArr))
+         }
+     
+
+
+// function DisplayList(items, wrapper, rows_per_page, page){
+//     wrapper.innerHTML="";
+//     page--;
+//     let start=rows_per_page=page;
+//     let end=start+rows_per_page;
+//     let paginateditems=items.slice(start, end);
+
+//     for(let i=0;i<paginateditems.length;i++){
+//         items_element.classList.add("item");
+//         item_element.innerText=item;
+
+//         wrapper.appendChild(item_elemnet)
+//     }
+// }
+// function setupPagination (items, wrapper, rows_per_page){
+//     wrapper.innerHTML="";
+//     let page_count=Math.ceil(items.length/rows_per_page);
+//     for(let i=1;i<page_count+1;i++){
+//         let btn=PaginationButton(i);
+//         wrapper.appendChild(btn)
+//     }
+// }
+
+// function PaginationButton(page){
+//     let button=documnet.createElement('button');
+//     button.innerText=page;
+
+//     if(current_page=page) button.classList.add("active");
+
+//     return button;
+// }
+
+// PaginationButton(crypto_data, rows, current_page);
+
+
+
+
+
+         function renderPagination(pages) {
   for (let i = 1; i <= pages; i++) {
     let btn = document.createElement("button");
     btn.innerText = i;
     btn.addEventListener("click", function () {
       currentPageState = i;
-      activePage(currentPageState);
-      paginatedTable(womensData, currentPageState, crypto_per_page);
+    //   activePage(currentPageState);
+      paginatedTable(crypto_data, currentPageState, crypto_per_page);
     });
     paginationDOM.append(btn);
   }
 }
 renderPagination(pages);
 
-
+/*
+@params data=== crypto_data
+ page === currentPageState
+ perPage === crypto_per_page
+*/
 function paginatedTable(data, page, perPage) {
   let start = perPage * (page - 1);
   let end = perPage * page;
   let splited = data.slice(start, end);
- renderDOM(splited);
+  renderDOM(splited);
 }
-paginatedTable(womensData, currentPageState, crypto_per_page);
+paginatedTable(crypto_data, currentPageState, crypto_per_page);
 
-sort.addEventListener("change", function () {
-  currentPageState = 1;
-  activePage(currentPageState);
-  if (sort.value === "") {
-    paginatedTable(womensData, currentPageState, crypto_per_page);
-  } else {
-    let  womensData_copy =  womensData.map(function (el) {
-      return el;
-    });
-    let sorted =  womensData_copy.sort(function (a, b) {
-      if (sort.value === "Low-High") {
-        return a.price - b.price;
-      } else if (sort.value === "High-Low") {
-        return b.price - a.price;
-      }
-    });
-    paginatedTable(sorted, currentPageState, crypto_per_page);
-  }
-});
 
-function activePage(currentPageState) {
-  let buttons = document.querySelectorAll("#pagination>button");
-  buttons.forEach(function (el,i) {
-    if( i === (currentPageState - 1)) {
-      el.style.backgroundColor = "green";
-    }else{
-        el.style.backgroundColor = "gray";
-    }
-  });
-}
-activePage(currentPageState);
-        
-            </script>
+// sort.addEventListener("change", function () {
+//   currentPageState = 1;
+//   activePage(currentPageState);
+//   if (sort.value === "") {
+//     paginatedTable(crypto_data, currentPageState, crypto_per_page);
+//   } else {
+//     let crypto_data_copy = crypto_data.map(function (el) {
+//       return el;
+//     });
+//     let sorted = crypto_data_copy.sort(function (a, b) {
+//       if (sort.value === "Low-High") {
+//         return a.high24 - b.high24;
+//       } else if (sort.value === "High-Low") {
+//         return b.high24 - a.high24;
+//       }
+//     });
+//     paginatedTable(sorted, currentPageState, crypto_per_page);
+//   }
+// });
 
+// function activePage(currentPageState) {
+//   let buttons = document.querySelectorAll("#pagination>button");
+//   buttons.forEach(function (el,i) {
+//     if( i === (currentPageState - 1)) {
+//       el.style.backgroundColor = "green";
+//     }else{
+//         el.style.backgroundColor = "gray";
+//     }
+//   });
+// }
+// activePage(currentPageState);
+      </script>
