@@ -1,0 +1,300 @@
+
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>womenshopping</title>
+    <style>
+     
+
+
+    </style>
+
+</head>
+<style>
+   *{
+        font-family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+    }
+
+    .flex{
+  display:flex;
+}
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+ 
+}
+body {
+    font-family: WhitneySSm,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #424553;
+  
+    -webkit-font-smoothing: antialiased;
+}
+
+header{
+  position: sticky;
+  top: 0px;
+  background: white;
+  height: 90px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+ 
+}
+
+.rightBox{
+    display: flex;
+    margin: 12px;
+    justify-content:space-between;
+    /* padding:0 20px; */
+  }
+
+.left img{
+  width: 42px;
+  height: 30px;
+}
+
+/* .container{ 
+  /* padding: 0 10vw;  */
+  /* width:100%;
+  border:1px solid black;
+} */
+
+/* .containerHeader{ 
+  /* padding: 0 10vw;  */
+  /* width:100%;
+}  */
+
+nav{
+  font-size: 15px;
+  padding-top: 14px;
+}
+ /* .logonv{
+    margin:50px;
+}  */
+/* .headnv{
+    text-align:center;
+} */
+nav{
+    margin-left:250px;
+}
+nav ul li{
+  list-style: none;
+  padding: 0 0px;
+  
+  
+  
+}
+.search{
+  width: 34vw;
+    padding: 7px 17px;
+    
+    border: 0.5px solid grey;
+    background: #f7f8fd;
+    border-radius: 5px;
+}
+.items-center{
+  align-items:center;
+} 
+
+.justify-center{
+  justify-content: center;
+}
+
+.space-between{
+  justify-content: space-between;
+}
+
+.uppercase{
+  text-transform: uppercase;
+}
+
+.semibold{
+  font-weight: bolder;
+}
+.mx-2 img{
+    margin-top:20px
+}
+.mx-2{
+   margin-left: 200 px;
+  /* margin-right: 12px; */
+  font-weight: bold;
+  font-size:20px;
+  margin-top:-40px
+} 
+.bag a{
+    text-decoration: none;
+  color:black;
+}
+
+ .my-2{
+  margin: 12px 0;
+ 
+}
+
+.flex-wrap{
+  flex-wrap: wrap;
+ 
+}
+#container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+
+}
+s{
+    text-decoration: line-through;
+}
+#subtotal{
+    width:200px;
+    height:400px;
+    margin-left:1100px;
+    padding:40px;
+  
+
+}
+#container{
+    margin-top:-400px;
+}
+
+
+   </style>
+
+<!-- <div id="links">
+      
+    <div><a href="cartwomen.html">Go to Cart</a></div>
+  </div> -->
+
+
+<body>
+    <header class="containerHeader">
+        <nav class="flex space-between">
+          <div class="left flex items-center">
+      <img class="logonv" src="https://images.indianexpress.com/2021/01/myntra.png"/>
+            <ul class="headnv flex items-center justify-center uppercase semibold">
+              <li>BAG- - - - - -</li>
+              <li>ADDRESS- - - - -</li>
+              <li>PAYMENT</li>
+              <!-- <li>Home and Living</li>
+              <li>Beauty</li>
+              <li>Studio</li> -->
+            </ul>
+          </div>
+          <div class="right flex items-center">
+            <!-- <input class="search" placeholder="Search for products, brands and more" class="desktop-searchBar" value="" data-reactid="904"> -->
+            <div class="rightBox">
+            <div class="wishlist mx-2">
+                <img src="https://constant.myntassets.com/checkout/assets/img/sprite-secure.png" alt="">
+                 
+                100 % secure</div>
+            <div class="bag mx-2"><a href="cartwomen.html"></a></div>
+              </div>
+          </div> 
+        </nav> 
+      </header> 
+
+     
+  </head>
+
+  <body>
+ 
+    <div id="subtotal">
+  
+    </div>
+   
+
+    <div id="container"></div>
+
+    
+
+
+   
+  </body>
+  <script>
+ 
+let productsData=JSON.parse(localStorage.getItem("productss"))||[]
+    // console.log(productData)
+  displayTable(productsData)
+ 
+
+  function displayTable(productsData){
+    // document.querySelector("container").innerHTML=""
+    productsData.forEach(function (elem, index){
+   let div=document.createElement("div");
+
+   let image =document.createElement("img");
+   image.setAttribute("src",elem.image_url);
+   
+   let womensName=document.createElement("h4");
+   womensName.innerText=elem.name;
+  
+  
+   let price =document.createElement("p");
+   price.innerText= "Rs"+ " "+ elem.price;
+   
+   let strprice =document.createElement("img");
+   strprice.innerText=elem.strikedoffprice
+  
+let dlt=document.createElement("p");
+      dlt.innerText="REMOVE"
+      dlt.style.fontWeight="bold"
+      dlt.addEventListener("click", function(){
+        deleteCart(index);
+      })
+   
+    dlt.addEventListener("click",function(e){
+        e.target.parentNode.remove();
+    })
+
+   div.append(image, womensName, price, strprice, dlt)
+    document.querySelector("#container").append(div)  
+    })
+  }
+let total=document.getElementById('subtotal')
+
+let price_total=function(productsData){
+    let sum=0
+
+    for(i=0;i<productsData.length;i++){
+        sum = sum + productsData[i].price
+    }
+    return sum
+}
+total.textContent = "Total Amount"+" "+ price_total(productsData)
+total.style.fontWeight="bold"
+
+
+
+
+function deleteCart(index){
+    productsData.splice(index,1);
+    localStorage.setItem("productss", JSON.stringify(productsData))
+}
+
+// let btn=document.getElementById('subtotal')
+// btn.innerText="Place Order"
+// btn.style.backgroundcolor="pink";
+
+
+</script>
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+You have unread notifications

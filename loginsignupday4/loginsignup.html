@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>login</title>
+    <style>
+     
+
+
+    </style>
+
+</head>
+<style>
+   *{
+        font-family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+    }
+
+    .flex{
+  display:flex;
+}
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+ 
+}
+body {
+    font-family: WhitneySSm,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #424553;
+    background-color:rgb(248, 217, 222);
+    -webkit-font-smoothing: antialiased;
+}
+
+header{
+  position: sticky;
+  top: 0px;
+  background: white;
+  height: 90px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+ 
+}
+
+.rightBox{
+    display: flex;
+    margin: 12px;
+    justify-content:space-between;
+    /* padding:0 20px; */
+  }
+
+.left img{
+  width: 42px;
+  height: 30px;
+}
+
+.container{ 
+  /* padding: 0 10vw;  */
+  width:100%;
+}
+
+.containerHeader{ 
+  /* padding: 0 10vw;  */
+  width:100%;
+}
+
+nav{
+  font-size: 15px;
+  padding-top: 14px;
+}
+
+nav ul li{
+  list-style: none;
+  padding: 0 12px;
+}
+.search{
+  width: 34vw;
+    padding: 7px 17px;
+    
+    border: 0.5px solid grey;
+    background: #f7f8fd;
+    border-radius: 5px;
+}
+.items-center{
+  align-items:center;
+} 
+
+.justify-center{
+  justify-content: center;
+}
+
+.space-between{
+  justify-content: space-between;
+}
+
+.uppercase{
+  text-transform: uppercase;
+}
+
+.semibold{
+  font-weight: bolder;
+}
+
+.mx-2{
+   margin-left: 12px;
+  margin-right: 12px;
+  font-weight: bolder; 
+} 
+
+ .my-2{
+  margin: 12px 0;
+ 
+}
+
+.flex-wrap{
+  flex-wrap: wrap;
+ 
+}
+
+
+.logImg{
+    margin:auto;
+    /* width:30%; */
+    padding-top:30px;
+display:block;
+    justify-content: center;
+
+}
+    #form{
+        height: auto;
+        width: 41%;
+        margin: auto;
+        /* border: 1px solid red; */
+        /* margin-top: 8%; */
+        justify-content: center;
+        padding: 20px 15px 30px 40px;
+       
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+    input{
+        width: 80%;
+        height: 35px;
+        border: 1px solid grey;
+        /* border-radius: 10px; */
+        margin-bottom: 20px;
+        padding-left: 10px;
+       margin-top:10px;
+        
+        
+    }
+    h2{
+      padding-left:15px;
+    }
+    h4{
+        margin-bottom: 8px;
+    }
+    a{
+        display: inline-block;
+        width: 92%;
+        height: 35px;
+        border: 0px solid rgb(244, 241, 241);
+        background-color: rgb(224, 220, 220);
+        border-radius: 10px;
+        margin-top: 30px;
+        font-weight: bolder;
+        font-size: 15px;
+        text-align: center;
+        padding-top: 15px ;
+        text-decoration: none;
+        
+    }
+    a:hover{
+        background-color: rgb(27, 70, 240);
+        color: white;
+    }
+    .cont{
+        background-color: rgb(233, 78, 104);
+        color:white;
+        height: 40px;
+        width: 83%;
+        margin:auto;
+        margin-top:20px;
+        margin-bottom: 20px;
+
+    }
+</style>
+
+<body>
+    <header class="containerHeader">
+        <nav class="flex space-between">
+          <div class="left flex items-center">
+      <img src="https://images.indianexpress.com/2021/01/myntra.png"/>
+            <ul class="flex items-center justify-center uppercase semibold">
+              <li>Men</li>
+              <li>Women</li>
+              <li>Kids</li>
+              <li>Home and Living</li>
+              <li>Beauty</li>
+              <li>Studio</li>
+            </ul>
+          </div>
+          <div class="right flex items-center">
+            <input class="search" placeholder="Search for products, brands and more" class="desktop-searchBar" value="" data-reactid="904">
+            <div class="rightBox">
+            <div class="wishlist mx-2">WishList</div>
+            <div class="bag mx-2">Bag</div>
+              </div>
+          </div>
+        </nav> 
+      </header> 
+
+
+    <img class="logImg" src="https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_400,c_limit,fl_progressive/assets/images/2022/8/23/fcfd9b29-41c9-443c-b17a-38f43e37dd5c1661232075382-offer-banner-300-600x240-code-_-MYNTRA300.jpg" alt="">
+ <form action="" id="form">
+        <h2>LogIn or Signup</h2>
+        
+        <input id="mobilenumber" type="text" placeholder="+91 | Mobile number" /><br />
+
+        <input id="password" type="text" placeholder="enter password" /><br />
+
+        <p>By continuating. I agree to the Terms of Use & Privacy Policy</p>
+        
+        <input class="cont"  type="submit" value="CONTINUE">
+
+        <p>Have trouble loggin in ? Get help</p>
+    </form>
+
+    
+
+
+<script>
+ 
+ let inputData=JSON.parse(localStorage.getItem("inputItem"))
+
+    document.querySelector("#form").addEventListener("submit",myProject)
+
+    function myProject(){
+        let mobilenumber=document.querySelector("#mobilenumber").value
+        let password=document.querySelector("#password").value
+     if(mobilenumber!=inputData.inputMobile && password!=inputData.inputPassword){
+        alert("Mobile Number and password Wrong")
+     }else if(mobilenumber==inputData.inputMobile && password!=inputData.inputPassword){
+        alert("Password is wrong")
+     }else if(mobilenumber!=inputData.inputMobile && password==inputData.inputPassword){
+        alert("Mobile Number is wrong")
+     }else{
+        alert("Login Successfull")
+     }
+     
+    }
+
+
+</script>
+
+</body>
+
+</html>
+   
