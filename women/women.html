@@ -735,6 +735,9 @@
   </script>
 
   <script>
+
+let cartArr = JSON.parse(localStorage.getItem("productss"))||[]
+
     let container = document.getElementById("container");
     let sort = document.getElementById("sort");
     let paginationDOM = document.getElementById("pagination");
@@ -781,15 +784,24 @@
 
         div.append(image, womensName, price, strikedoffprice, description, button,);
         container.append(div)
-        
+
       });
     }
 
-    function addToCartFunc(el, index) {
-      // console.log(elem)
-      cartArr.push(el)
-      localStorage.setItem("productss", JSON.stringify(cartArr))
-    }
+    function addToCartFunc(el, index){
+            // console.log(elem)
+              cartArr.push(el)
+              localStorage.setItem("productss", JSON.stringify(cartArr))
+            }
+        
+
+    // function addToCartFunc(el, index) {
+    //   // console.log(elem)
+    //   cartArr.push(el)
+    //   localStorage.setItem("productss", JSON.stringify(cartArr))
+    // }
+
+
     function renderPagination(pages) {
       for (let i = 1; i <= pages; i++) {
         let btn = document.createElement("button");

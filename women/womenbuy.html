@@ -184,7 +184,7 @@ s{
 
        <div id="pagination"></div>
        <script>
-        var womensData = [
+        var crypto_data = [
             {
               image_url:
                 "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/10961848/2020/8/19/132d44e6-639e-44dc-a2a6-c0205735542f1597812419281-Roadster-Women-Tshirts-6091597812417973-1.jpg",
@@ -708,19 +708,18 @@ s{
           ];
     
         
-        let cartArr = JSON.parse(localStorage.getItem("productss"))||[]
+         let cartArr = JSON.parse(localStorage.getItem("productss"))||[]
         // let cartArr=[];
-
-
+        let container = document.getElementById("container");
         let sort = document.getElementById("sort");
 let paginationDOM = document.getElementById("pagination");
 let crypto_per_page =  10;
 let currentPageState = 1;
-let pages = Math.ceil(womensData.length / crypto_per_page);
+let pages = Math.ceil(crypto_data.length / crypto_per_page);
 
 function renderDOM(data) {
-  // tbody.innerHTML = null;
-          womensData.forEach(function(el, index){
+  container.innerHTML = null;
+  crypto_data.forEach(function(el, index){
            let div=document.createElement("div");
         
            let image =document.createElement("img");
@@ -751,7 +750,7 @@ function renderDOM(data) {
 
           
            div.append(image, womensName,price, strikedoffprice, description, button, );
-           document.querySelector("#container").append(div)
+           container.append(div)
         });
       }
         function addToCartFunc(el, index){
@@ -760,60 +759,119 @@ function renderDOM(data) {
               localStorage.setItem("productss", JSON.stringify(cartArr))
             }
         
-            function renderPagination(pages) {
-  for (let i = 1; i <= pages; i++) {
-    let btn = document.createElement("button");
-    btn.innerText = i;
-    btn.addEventListener("click", function () {
-      currentPageState = i;
+
+
+
+//             function renderPagination(pages) {
+//   for (let i = 1; i <= pages; i++) {
+//     let btn = document.createElement("button");
+//     btn.innerText = i;
+//     btn.addEventListener("click", function () {
+//       currentPageState = i;
+//       activePage(currentPageState);
+//       paginatedTable(womensData, currentPageState, crypto_per_page);
+//     });
+//     paginationDOM.append(btn);
+//   }
+// }
+// renderPagination(pages);
+
+function renderPagination(pages) {
+      for (let i = 1; i <= pages; i++) {
+        let btn = document.createElement("button");
+        btn.innerText = i;
+        btn.addEventListener("click", function () {
+          currentPageState = i;
+          activePage(currentPageState);
+          paginatedTable(crypto_data, currentPageState, crypto_per_page);
+        });
+        paginationDOM.append(btn);
+      }
+    }
+    renderPagination(pages);
+
+
+    function paginatedTable(data, page, perPage) {
+      let start = perPage * (page - 1);
+      let end = perPage * page;
+      let splited = data.slice(start, end);
+      renderDOM(splited);
+    }
+    paginatedTable(crypto_data, currentPageState, crypto_per_page);
+
+
+    sort.addEventListener("change", function () {
+      currentPageState = 1;
       activePage(currentPageState);
-      paginatedTable(womensData, currentPageState, crypto_per_page);
-    });
-    paginationDOM.append(btn);
-  }
-}
-renderPagination(pages);
-
-
-function paginatedTable(data, page, perPage) {
-  let start = perPage * (page - 1);
-  let end = perPage * page;
-  let splited = data.slice(start, end);
- renderDOM(splited);
-}
-paginatedTable(womensData, currentPageState, crypto_per_page);
-
-sort.addEventListener("change", function () {
-  currentPageState = 1;
-  activePage(currentPageState);
-  if (sort.value === "") {
-    paginatedTable(womensData, currentPageState, crypto_per_page);
-  } else {
-    let  womensData_copy =  womensData.map(function (el) {
-      return el;
-    });
-    let sorted =  womensData_copy.sort(function (a, b) {
-      if (sort.value === "Low-High") {
-        return a.price - b.price;
-      } else if (sort.value === "High-Low") {
-        return b.price - a.price;
+      if (sort.value === "") {
+        paginatedTable(crypto_data, currentPageState, crypto_per_page);
+      } else {
+        let crypto_data_copy = crypto_data.map(function (el) {
+          return el;
+        });
+        let sorted = crypto_data_copy.sort(function (a, b) {
+          if (sort.value === "Low-High") {
+            return a.price - b.price;
+          } else if (sort.value === "High-Low") {
+            return b.price - a.price;
+          }
+        });
+        paginatedTable(sorted, currentPageState, crypto_per_page);
       }
     });
-    paginatedTable(sorted, currentPageState, crypto_per_page);
-  }
-});
 
-function activePage(currentPageState) {
-  let buttons = document.querySelectorAll("#pagination>button");
-  buttons.forEach(function (el,i) {
-    if( i === (currentPageState - 1)) {
-      el.style.backgroundColor = "green";
-    }else{
-        el.style.backgroundColor = "gray";
+    function activePage(currentPageState) {
+      let buttons = document.querySelectorAll("#pagination>button");
+      buttons.forEach(function (el, i) {
+        if (i === (currentPageState - 1)) {
+          el.style.backgroundColor = "green";
+        } else {
+          el.style.backgroundColor = "gray";
+        }
+      });
     }
-  });
-}
-activePage(currentPageState);
+    activePage(currentPageState);
+
+
+// function paginatedTable(data, page, perPage) {
+//   let start = perPage * (page - 1);
+//   let end = perPage * page;
+//   let splited = data.slice(start, end);
+//  renderDOM(splited);
+// }
+// paginatedTable(womensData, currentPageState, crypto_per_page);
+
+// sort.addEventListener("change", function () {
+//   currentPageState = 1;
+//   activePage(currentPageState);
+//   if (sort.value === "") {
+//     paginatedTable(womensData, currentPageState, crypto_per_page);
+//   } else {
+//     let  womensData_copy =  womensData.map(function (el) {
+//       return el;
+//     });
+//     let sorted =  womensData_copy.sort(function (a, b) {
+//       if (sort.value === "Low-High") {
+//         return a.price - b.price;
+//       } else if (sort.value === "High-Low") {
+//         return b.price - a.price;
+//       }
+//     });
+//     paginatedTable(sorted, currentPageState, crypto_per_page);
+//   }
+// });
+
+// function activePage(currentPageState) {
+//   let buttons = document.querySelectorAll("#pagination>button");
+//   buttons.forEach(function (el,i) {
+//     if( i === (currentPageState - 1)) {
+//       el.style.backgroundColor = "green";
+//     }else{
+//         el.style.backgroundColor = "gray";
+//     }
+//   });
+// }
+// activePage(currentPageState);
         
             </script>
 
