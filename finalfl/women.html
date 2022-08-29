@@ -774,8 +774,9 @@ let cartArr = JSON.parse(localStorage.getItem("productss"))||[]
         button.style.backgroundColor = "rgb(233, 78, 104)"
         button.style.border = "none"
         button.addEventListener("click", function () {
-          addToCartFunc(el, index)
+          addToCartFunc(elem, index)
         })
+      
 
         let strikedoffprice = document.createElement("s");
         strikedoffprice.innerText = strikedoffprice.innerText = "Rs" + " " + el.strikedoffprice;
@@ -788,11 +789,11 @@ let cartArr = JSON.parse(localStorage.getItem("productss"))||[]
       });
     }
 
-    function addToCartFunc(el, index){
-            // console.log(elem)
-              cartArr.push(el)
-              localStorage.setItem("productss", JSON.stringify(cartArr))
-            }
+    function addToCartFunc(elem, index){
+    // console.log(elem)
+      cartArr.push(elem)
+      localStorage.setItem("products", JSON.stringify(cartArr))
+    }
         
 
     // function addToCartFunc(el, index) {
@@ -850,9 +851,9 @@ let cartArr = JSON.parse(localStorage.getItem("productss"))||[]
       let buttons = document.querySelectorAll("#pagination>button");
       buttons.forEach(function (el, i) {
         if (i === (currentPageState - 1)) {
-          el.style.backgroundColor = "green";
+          el.style.backgroundColor = "rgb(233, 78, 104)";
         } else {
-          el.style.backgroundColor = "gray";
+          el.style.backgroundColor = "white";
         }
       });
     }
